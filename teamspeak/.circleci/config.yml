@@ -1,0 +1,25 @@
+# PHP CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-php/ for more details
+#
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/php:latest
+
+    steps:
+      - setup_remote_docker:   # (2)
+          docker_layer_caching: true # (3)
+
+      - checkout
+      - run: echo Anmelden als ${_USERNAME}
+      - run: echo ${_PASSWORD} | docker login -u ${_USERNAME} --password-stdin
+      - run: php build.php
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build:
+          context: DOCKERHUB
