@@ -1,4 +1,4 @@
-FROM centos:latest
+FROM centos:7
 
 ENV LIVECONFIG_VERSION=2.8.4-r5653
 
