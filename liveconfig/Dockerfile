@@ -1,6 +1,6 @@
 FROM centos:latest
 
-ENV LIVECONFIG_VERSION=2.7.4-r5214
+ENV LIVECONFIG_VERSION=2.8.4-r5653
 
 RUN rpm --import https://www.liveconfig.com/liveconfig.key
 RUN cd /etc/yum.repos.d ; curl -Os http://repo.liveconfig.com/centos/liveconfig.repo
